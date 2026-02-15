@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/autotrade}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+
+kite:
+  api-key: ${API_KEY:}
+  api-secret: ${API_SECRET:}
+  access-token: ${ACCESS_TOKEN:}
+  user-id: ${KITE_USER_ID:}
+
+strategy:
+  poll-ms: ${STRATEGY_POLL_MS:5000}
+
+logging:
+  level:
+    com.example.autotrade: INFO
